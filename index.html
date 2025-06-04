@@ -111,6 +111,24 @@ nav {
 
 /* MOBILE STYLES */
 @media (max-width: 768px) {
+  nav {
+    flex-direction: row;         /* row instead of column */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin-bottom: 0;            /* no need for bottom space */
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    font-size: 24px;
+    color: var(--text-primary);
+    cursor: pointer;
+    margin-left: auto;           /* push it to the right */
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -125,24 +143,8 @@ nav {
   .nav-links li {
     margin: 10px 0;
   }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-    font-size: 24px;
-    color: var(--text-primary);
-    cursor: pointer;
-  }
-
-  .logo {
-    margin-bottom: 10px;
-  }
 }
-    /* Enhanced Hero Section */
+    /* Hero Section */
     .hero {
       display: flex;
       align-items: center;
