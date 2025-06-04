@@ -52,25 +52,28 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+    
+    /* Header & Navigation */
     header {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 1px 3px var(--shadow);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 20px 0;
+  padding: 15px 0;
   backdrop-filter: blur(10px);
 }
 
+/* FLEX CONTAINER */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping on small screens */
+  flex-wrap: wrap;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -79,34 +82,44 @@ nav {
   color: var(--primary);
 }
 
+/* NAV LINKS */
 .nav-links {
   display: flex;
   list-style: none;
-  margin-top: 10px;
+  gap: 20px;
 }
 
-.nav-links li {
-  margin-left: 30px;
-}
-
-.nav-links a {
+.nav-links li a {
   font-weight: 500;
   color: var(--text-secondary);
   font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links li a:hover {
   color: var(--primary);
 }
 
-/* Media Query for Mobile */
+/* MOBILE MENU ICON */
+.mobile-menu-btn {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+/* MOBILE STYLES */
 @media (max-width: 768px) {
   .nav-links {
+    display: none;
     flex-direction: column;
     width: 100%;
-    align-items: flex-start;
     margin-top: 10px;
-    padding-left: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 
   .nav-links li {
@@ -116,6 +129,17 @@ nav {
   nav {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    font-size: 24px;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  .logo {
+    margin-bottom: 10px;
   }
 }
     /* Enhanced Hero Section */
@@ -1053,6 +1077,7 @@ nav {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
 </head>
 <body>
@@ -1515,10 +1540,11 @@ if (contactForm) {
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-          
-          // Alternative: If you don't have a file, you can show a message
-          // alert('Resume download will be available soon. Please contact me directly for now.');
+        
         });
+
+        
+   
         </script>
     <div class="floating-elements">
       <span class="bubble" style="top: 20%; left: 10%;"></span>
