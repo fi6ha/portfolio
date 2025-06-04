@@ -668,7 +668,10 @@ nav {
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 30px;
     }
-    
+    .project-item.active .project-info {
+  opacity: 1;
+  pointer-events: auto;
+}
     .project-item {
       position: relative;
       border-radius: 12px;
@@ -713,6 +716,8 @@ nav {
       transition: opacity 0.3s ease;
       padding: 24px;
       text-align: center;
+      
+  pointer-events: none;
     }
     
     .project-item:hover .project-info {
@@ -1545,6 +1550,31 @@ if (contactForm) {
 
         
    
+        </script>
+        <script>
+          // Only enable this for touch devices
+          if ('ontouchstart' in document.documentElement) {
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            projectItems.forEach(item => {
+              item.addEventListener('click', function () {
+                // Close any already open ones
+                projectItems.forEach(i => {
+                  if (i !== item) i.classList.remove('active');
+                });
+        
+                // Toggle current item
+                item.classList.toggle('active');
+              });
+            });
+        
+            // Optional: close if user taps anywhere else
+            document.addEventListener('click', function (e) {
+              if (!e.target.closest('.project-item')) {
+                projectItems.forEach(item => item.classList.remove('active'));
+              }
+            });
+          }
         </script>
     <div class="floating-elements">
       <span class="bubble" style="top: 20%; left: 10%;"></span>
